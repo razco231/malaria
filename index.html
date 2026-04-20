@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MalaSense AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">MalaSense AI</div>
+
+      <div class="nav-links">
+        <a href="#checker">Checker</a>
+        <a href="#prevention">Prevention</a>
+        <a href="#clinics">Clinics</a>
+      </div>
+
+      <button class="nav-btn" onclick="scrollToSection('checker')">Start Check</button>
+    </nav>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="badge">Malaria Innovation Hackathon 2026</span>
+        <h1>AI Malaria Symptom Checker</h1>
+        <p>
+          A smart and simple platform that helps users assess malaria risk
+          based on symptoms and get quick guidance on what to do next.
+        </p>
+
+        <div class="hero-actions">
+          <button class="primary-btn" onclick="scrollToSection('checker')">Check Symptoms</button>
+          <button class="secondary-btn" onclick="scrollToSection('prevention')">See Prevention Tips</button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <h3>2,481</h3>
+            <p>Checks Today</p>
+          </div>
+          <div class="stat-card">
+            <h3>87%</h3>
+            <p>Awareness Score</p>
+          </div>
+          <div class="stat-card">
+            <h3>12</h3>
+            <p>Nearby Clinics</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="panel-card">
+          <h3>Quick Scan Preview</h3>
+          <p>Symptoms detected:</p>
+          <ul>
+            <li>Fever</li>
+            <li>Headache</li>
+            <li>Chills</li>
+          </ul>
+          <div class="mini-result high">High Risk</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section checker-section" id="checker">
+      <div class="section-heading">
+        <span class="section-tag">Symptom Analysis</span>
+        <h2>Tell us how you feel</h2>
+        <p>Select the symptoms you are experiencing for a quick AI-assisted malaria risk check.</p>
+      </div>
+
+      <div class="checker-grid">
+        <div class="form-card">
+          <form id="symptomForm">
+            <div class="input-group">
+              <label class="field-label">Describe how you feel</label>
+              <textarea id="userInput" rows="4" placeholder="e.g. I have been feeling feverish"></textarea>
+              <label class="field-label">Select Symptoms</label>
+              <div class="symptoms-grid">
+                <label class="symptom-pill"><input type="checkbox" value="fever" /> Fever</label>
+                <label class="symptom-pill"><input type="checkbox" value="headache" /> Headache</label>
+                <label class="symptom-pill"><input type="checkbox" value="chills" /> Chills</label>
+                <label class="symptom-pill"><input type="checkbox" value="body_pain" /> Body Pain</label>
+                <label class="symptom-pill"><input type="checkbox" value="vomiting" /> Vomiting</label>
+                <label class="symptom-pill"><input type="checkbox" value="weakness" /> Weakness</label>
+                <label class="symptom-pill"><input type="checkbox" value="nausea" /> Nausea</label>
+                <label class="symptom-pill"><input type="checkbox" value="sweating" /> Sweating</label>
+              </div>
+            </div>
+
+            <div class="two-columns">
+              <div class="input-group">
+                <label for="ageRange" class="field-label">Age Range</label>
+                <select id="ageRange">
+                  <option value="">Select age range</option>
+                  <option value="child">0 - 12</option>
+                  <option value="teen">13 - 19</option>
+                  <option value="adult">20 - 59</option>
+                  <option value="older">60+</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <label for="duration" class="field-label">Symptom Duration</label>
+                <select id="duration">
+                  <option value="">Select duration</option>
+                  <option value="1">Less than 1 day</option>
+                  <option value="2">1 - 2 days</option>
+                  <option value="3">3 - 4 days</option>
+                  <option value="5">5+ days</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="location" class="field-label">Location</label>
+              <input type="text" id="location" placeholder="e.g. Ilorin, Kwara State" />
+            </div>
+
+            <button type="submit" class="analyze-btn">Analyze Symptoms</button>
+          </form>
+        </div>
+
+        <div class="result-card" id="resultCard">
+          <div class="result-placeholder">
+            <div class="pulse-icon">+</div>
+            <h3>Your result will appear here</h3>
+            <p>Fill the form and click analyze to view malaria risk level, confidence, and next-step advice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tips-section" id="prevention">
+      <div class="section-heading">
+        <span class="section-tag">Prevention</span>
+        <h2>How to reduce malaria risk</h2>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">🛏️</div>
+          <h3>Sleep Under Treated Nets</h3>
+          <p>Use insecticide-treated mosquito nets every night to reduce bites while sleeping.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">💧</div>
+          <h3>Remove Stagnant Water</h3>
+          <p>Empty containers and drain standing water where mosquitoes can breed.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">🧴</div>
+          <h3>Use Repellents</h3>
+          <p>Apply mosquito repellent and protect exposed skin, especially in the evening.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">🏥</div>
+          <h3>Test Early</h3>
+          <p>Seek medical testing quickly if fever, chills, or weakness begin suddenly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section clinics-section" id="clinics">
+      <div class="section-heading">
+        <span class="section-tag">Nearby Help</span>
+        <h2>Suggested clinics</h2>
+        <p>These are demo clinic cards for presentation purposes.</p>
+      </div>
+
+      <div class="clinic-grid">
+        <div class="clinic-card">
+          <div class="clinic-top">
+            <h3>UITH Clinic</h3>
+            <span class="status open">Open</span>
+          </div>
+          <p>PMB 1459, Ilorin</p>
+          <small>1.8 km away</small>
+        </div>
+
+        <div class="clinic-card">
+          <div class="clinic-top">
+            <h3>General Hospital</h3>
+            <span class="status open">Open</span>
+          </div>
+          <p>Sawmill Area, Ilorin</p>
+          <small>3.2 km away</small>
+        </div>
+
+        <div class="clinic-card">
+          <div class="clinic-top">
+            <h3>Primary Health Centre</h3>
+            <span class="status closed">Closed</span>
+          </div>
+          <p>Tanke, Ilorin</p>
+          <small>4.5 km away</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <h3>MalaSense AI</h3>
+    <p>AI-assisted malaria awareness and symptom checking experience.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
