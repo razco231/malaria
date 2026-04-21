@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline';"
+  />
   <title>AeroShield | Malaria Prevention Innovation</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -19,11 +23,14 @@
         <a href="#team">Team</a>
       </div>
 
-      <button class="nav-btn" onclick="scrollToSection('solution')">Explore</button>
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggle" type="button" title="Toggle dark mode">🌙</button>
+        <button class="nav-btn" onclick="scrollToSection('solution')">Explore</button>
+      </div>
     </nav>
 
     <div class="hero-content">
-      <div class="hero-text">
+      <div class="hero-text fade-in">
         <span class="badge">Malaria Innovation Hackathon 2026</span>
         <h1>Safe Air, The No-Fly Zone</h1>
         <p>
@@ -39,23 +46,27 @@
         </div>
 
         <div class="hero-stats">
-          <div class="stat-card">
+          <div class="stat-card hover-rise glass fade-in">
             <h3>Low Cost</h3>
             <p>Built for affordability</p>
           </div>
-          <div class="stat-card">
+          <div class="stat-card hover-rise glass fade-in">
             <h3>Indoor Focus</h3>
             <p>Protection where exposure happens most</p>
           </div>
-          <div class="stat-card">
+          <div class="stat-card hover-rise glass fade-in">
             <h3>Scalable</h3>
             <p>Made for communities and schools</p>
+          </div>
+          <div class="stat-card hover-rise glass fade-in">
+            <h3>92%</h3>
+            <p>Prototype Confidence</p>
           </div>
         </div>
       </div>
 
-      <div class="hero-panel">
-        <div class="panel-card">
+      <div class="hero-panel fade-in">
+        <div class="panel-card glass">
           <img src="images/image1.png" class="device-img" alt="AeroShield Device" />
           <h3>AeroShield Device</h3>
           <p>Low-cost indoor mosquito protection system.</p>
@@ -72,7 +83,7 @@
   </header>
 
   <main>
-    <section class="section" id="about">
+    <section class="section fade-in" id="about">
       <div class="section-heading">
         <span class="section-tag">About AeroShield</span>
         <h2>A practical malaria prevention solution</h2>
@@ -83,26 +94,26 @@
       </div>
 
       <div class="feature-grid">
-        <div class="feature-card">
+        <div class="feature-card hover-rise">
           <h3>🌿 Natural Repellent</h3>
           <p>Uses safe extracts like neem or lemongrass.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card hover-rise">
           <h3>🔋 Low Power</h3>
           <p>Can run with a rechargeable battery or power bank.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card hover-rise">
           <h3>🏠 Indoor Protection</h3>
           <p>Targets mosquito exposure indoors at night.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card hover-rise">
           <h3>♻ Reusable</h3>
           <p>Designed for repeated everyday use.</p>
         </div>
       </div>
     </section>
 
-    <section class="section alt-bg" id="problem">
+    <section class="section alt-bg fade-in" id="problem">
       <div class="section-heading">
         <span class="section-tag">Problem</span>
         <h2>Why this matters</h2>
@@ -113,52 +124,52 @@
       </div>
 
       <div class="problem-grid">
-        <div class="problem-card">
+        <div class="problem-card hover-rise">
           <h3>🌍 High Burden</h3>
           <p>Nigeria faces a heavy malaria burden and urgent prevention needs.</p>
         </div>
-        <div class="problem-card">
+        <div class="problem-card hover-rise">
           <h3>🏠 Indoor Exposure</h3>
           <p>Most malaria transmission happens indoors at night.</p>
         </div>
-        <div class="problem-card">
+        <div class="problem-card hover-rise">
           <h3>📚 Student Impact</h3>
           <p>Malaria disrupts learning, attendance, and productivity.</p>
         </div>
-        <div class="problem-card">
+        <div class="problem-card hover-rise">
           <h3>💸 Financial Pressure</h3>
           <p>Prevention and treatment costs put pressure on families.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="gap">
+    <section class="section fade-in" id="gap">
       <div class="section-heading">
         <span class="section-tag">Gap in Current Solutions</span>
         <h2>Why existing options are not enough</h2>
       </div>
 
       <div class="gap-grid">
-        <div class="gap-card">
+        <div class="gap-card hover-rise">
           <h3>🕸 Mosquito Nets</h3>
           <p>Often uncomfortable and not used consistently.</p>
         </div>
-        <div class="gap-card">
+        <div class="gap-card hover-rise">
           <h3>🧴 Sprays</h3>
           <p>Can be toxic and expensive over time.</p>
         </div>
-        <div class="gap-card">
+        <div class="gap-card hover-rise">
           <h3>🔌 Electric Repellents</h3>
           <p>Depend on stable electricity supply.</p>
         </div>
-        <div class="gap-card">
+        <div class="gap-card hover-rise">
           <h3>🌀 Coils</h3>
           <p>May produce harmful smoke indoors.</p>
         </div>
       </div>
     </section>
 
-    <section class="section alt-bg" id="solution">
+    <section class="section alt-bg fade-in" id="solution">
       <div class="section-heading">
         <span class="section-tag">Solution</span>
         <h2>How AeroShield works</h2>
@@ -172,25 +183,25 @@
       </div>
 
       <div class="steps-grid">
-        <div class="step-card">
+        <div class="step-card hover-rise">
           <div class="step-number">1</div>
           <h3>Natural Extract</h3>
           <p>Neem or lemongrass extract is loaded into a cartridge.</p>
         </div>
 
-        <div class="step-card">
+        <div class="step-card hover-rise">
           <div class="step-number">2</div>
           <h3>Gradual Release</h3>
           <p>The system diffuses vapour steadily into the room.</p>
         </div>
 
-        <div class="step-card">
+        <div class="step-card hover-rise">
           <div class="step-number">3</div>
           <h3>Low Power Supply</h3>
           <p>Powered by rechargeable battery or power bank.</p>
         </div>
 
-        <div class="step-card">
+        <div class="step-card hover-rise">
           <div class="step-number">4</div>
           <h3>Continuous Defence</h3>
           <p>Provides ongoing indoor mosquito protection.</p>
@@ -198,7 +209,7 @@
       </div>
     </section>
 
-    <section class="section" id="real-life">
+    <section class="section fade-in" id="real-life">
       <div class="section-heading">
         <span class="section-tag">Real Life Application</span>
         <h2>Student hostel scenario</h2>
@@ -207,7 +218,7 @@
         </p>
       </div>
 
-      <div class="usage-box">
+      <div class="usage-box hover-rise">
         <img src="images/image5.png" class="usage-img" alt="AeroShield real life use" />
         <div class="usage-text">
           <h3>Built for real environments</h3>
@@ -223,74 +234,74 @@
       </div>
     </section>
 
-    <section class="section alt-bg" id="impact">
+    <section class="section alt-bg fade-in" id="impact">
       <div class="section-heading">
         <span class="section-tag">Impact</span>
         <h2>What AeroShield can achieve</h2>
       </div>
 
       <div class="impact-grid">
-        <div class="impact-card">
+        <div class="impact-card hover-rise">
           <h3>🦟 Reduce Exposure</h3>
           <p>Helps lower indoor mosquito contact.</p>
         </div>
-        <div class="impact-card">
+        <div class="impact-card hover-rise">
           <h3>🏥 Lower Infections</h3>
           <p>Supports malaria prevention efforts.</p>
         </div>
-        <div class="impact-card">
+        <div class="impact-card hover-rise">
           <h3>📚 Improve Productivity</h3>
           <p>Helps students stay healthier and more active.</p>
         </div>
-        <div class="impact-card">
+        <div class="impact-card hover-rise">
           <h3>💰 Affordable Option</h3>
           <p>Offers a cheaper alternative to repeated spray use.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="feasibility">
+    <section class="section fade-in" id="feasibility">
       <div class="section-heading">
         <span class="section-tag">Feasibility</span>
         <h2>Built with local materials</h2>
       </div>
 
       <div class="materials-grid">
-        <div class="material-card">🧱 Plastic casing</div>
-        <div class="material-card">🌀 Small fan / heating element</div>
-        <div class="material-card">🔋 Rechargeable battery</div>
-        <div class="material-card">🌿 Natural repellent extract</div>
-        <div class="material-card">🔩 Basic assembly parts</div>
+        <div class="material-card hover-rise">🧱 Plastic casing</div>
+        <div class="material-card hover-rise">🌀 Small fan / heating element</div>
+        <div class="material-card hover-rise">🔋 Rechargeable battery</div>
+        <div class="material-card hover-rise">🌿 Natural repellent extract</div>
+        <div class="material-card hover-rise">🔩 Basic assembly parts</div>
       </div>
     </section>
 
-    <section class="section alt-bg" id="scale">
+    <section class="section alt-bg fade-in" id="scale">
       <div class="section-heading">
         <span class="section-tag">Scalability</span>
         <h2>Where AeroShield can grow</h2>
       </div>
 
       <div class="scale-grid">
-        <div class="scale-card">
+        <div class="scale-card hover-rise">
           <h3>🎓 Schools & Universities</h3>
           <p>Useful for hostels, clinics, and student communities.</p>
         </div>
-        <div class="scale-card">
+        <div class="scale-card hover-rise">
           <h3>🏘 Community Health Programmes</h3>
           <p>Can support PHC centres and local health campaigns.</p>
         </div>
-        <div class="scale-card">
+        <div class="scale-card hover-rise">
           <h3>🤝 NGOs & Government</h3>
           <p>Can be adopted through partnerships and public programmes.</p>
         </div>
-        <div class="scale-card">
+        <div class="scale-card hover-rise">
           <h3>🏭 Local Manufacturing</h3>
           <p>Suitable for production within Nigeria’s supply chain.</p>
         </div>
       </div>
     </section>
 
-    <section class="section checker-section" id="checker">
+    <section class="section checker-section fade-in" id="checker">
       <div class="section-heading">
         <span class="section-tag">AI Symptom Checker</span>
         <h2>Extra smart support for users</h2>
@@ -301,14 +312,15 @@
       </div>
 
       <div class="checker-grid">
-        <div class="form-card">
-          <form id="symptomForm">
+        <div class="form-card hover-rise">
+          <form id="symptomForm" novalidate>
             <div class="input-group">
-              <label class="field-label">Describe how you feel</label>
+              <label class="field-label" for="userInput">Describe how you feel</label>
               <div class="voice-box">
                 <textarea
                   id="userInput"
                   rows="5"
+                  maxlength="300"
                   placeholder="Example: I have fever, headache, chills and my body feels weak..."
                 ></textarea>
                 <button type="button" id="micBtn" title="Speak symptoms">🎤</button>
@@ -358,14 +370,14 @@
 
             <div class="input-group">
               <label for="location" class="field-label">Location</label>
-              <input type="text" id="location" placeholder="e.g. Ilorin, Kwara State" />
+              <input type="text" id="location" maxlength="80" placeholder="e.g. Ilorin, Kwara State" />
             </div>
 
             <button type="submit" class="analyze-btn">Analyze Symptoms</button>
           </form>
         </div>
 
-        <div class="result-card" id="resultCard">
+        <div class="result-card hover-rise" id="resultCard">
           <div class="result-placeholder">
             <div class="pulse-icon">+</div>
             <h3>Your result will appear here</h3>
@@ -378,35 +390,35 @@
       </div>
     </section>
 
-    <section class="section alt-bg" id="team">
+    <section class="section alt-bg fade-in" id="team">
       <div class="section-heading">
         <span class="section-tag">Team</span>
         <h2>Meet the AeroShield Team</h2>
       </div>
 
       <div class="team-grid">
-        <div class="team-card">
+        <div class="team-card hover-rise">
           <img src="images/face1.jpg" class="team-img" alt="Okunola Abdulroqeeb" />
           <h3>Okunola Abdulroqeeb</h3>
           <p>Computer Science</p>
           <small>KWASU, Malete</small>
         </div>
 
-        <div class="team-card">
+        <div class="team-card hover-rise">
           <img src="images/face2.jpg" class="team-img" alt="Fadipe-Joseph Love" />
           <h3>Fadipe-Joseph Love</h3>
           <p>Pharmacy</p>
           <small>University of Ilorin</small>
         </div>
 
-        <div class="team-card">
+        <div class="team-card hover-rise">
           <img src="images/face3.jpg" class="team-img" alt="Okunola Abdussalam" />
           <h3>Okunola Abdussalam</h3>
           <p>Civil Engineering</p>
           <small>KWASU, Malete</small>
         </div>
 
-        <div class="team-card">
+        <div class="team-card hover-rise">
           <img src="images/face4.jpg" class="team-img" alt="Adamu Suleiman" />
           <h3>Adamu Suleiman</h3>
           <p>Islamic Studies</p>

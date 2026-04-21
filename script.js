@@ -1,11 +1,27 @@
 function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+function escapeHTML(str) {
+  return String(str).replace(/[&<>"']/g, function (match) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    }[match];
+  });
 }
 
 const form = document.getElementById("symptomForm");
 const resultCard = document.getElementById("resultCard");
 const micBtn = document.getElementById("micBtn");
 const userInput = document.getElementById("userInput");
+const themeToggle = document.getElementById("themeToggle");
 
 function extractSymptomsFromText(text) {
   const symptomKeywords = {
@@ -100,33 +116,32 @@ function analyzeSymptoms(symptoms, ageRange, duration) {
 }
 
 function showResult(result, symptoms, location, textInput) {
+  const safeLocation = escapeHTML(location || "Not provided");
+
   const detectedSymptomsHtml = symptoms.length
     ? symptoms
-        .map(
-          (symptom) =>
-            `<span class="detected-item">${formatSymptomName(symptom)}</span>`
-        )
+        .map((symptom) => `<span class="detected-item">${escapeHTML(formatSymptomName(symptom))}</span>`)
         .join("")
     : `<span class="detected-item">No detected symptoms</span>`;
 
   resultCard.innerHTML = `
     <div class="result-content">
-      <span class="result-badge ${result.className}">${result.level}</span>
-      <h3>${result.level}</h3>
-      <p>${result.advice}</p>
+      <span class="result-badge ${result.className}">${escapeHTML(result.level)}</span>
+      <h3>${escapeHTML(result.level)}</h3>
+      <p>${escapeHTML(result.advice)}</p>
 
       <div class="result-details">
         <div class="detail-box">
           <span>Confidence</span>
-          <strong>${result.confidence}</strong>
+          <strong>${escapeHTML(result.confidence)}</strong>
         </div>
         <div class="detail-box">
           <span>Urgency</span>
-          <strong>${result.urgency}</strong>
+          <strong>${escapeHTML(result.urgency)}</strong>
         </div>
         <div class="detail-box">
           <span>Location</span>
-          <strong>${location || "Not provided"}</strong>
+          <strong>${safeLocation}</strong>
         </div>
         <div class="detail-box">
           <span>Input Method</span>
@@ -157,6 +172,12 @@ form.addEventListener("submit", function (e) {
   ).map((input) => input.value);
 
   const textInput = userInput.value.trim();
+
+  if (textInput.length > 300) {
+    alert("Input too long.");
+    return;
+  }
+
   const textSymptoms = extractSymptomsFromText(textInput);
   const symptoms = [...new Set([...selectedSymptoms, ...textSymptoms])];
 
@@ -179,7 +200,7 @@ form.addEventListener("submit", function (e) {
     <div class="loading-box">
       <div class="spinner"></div>
       <h3>AI analyzing symptoms...</h3>
-      <p>Please wait while AeroShield AI processes your symptom pattern.</p>
+      <p class="typing">Processing data...</p>
     </div>
   `;
 
@@ -206,7 +227,7 @@ if ("webkitSpeechRecognition" in window) {
 
   recognition.onresult = function (event) {
     const transcript = event.results[0][0].transcript;
-    userInput.value = transcript;
+    userInput.value = transcript.slice(0, 300);
   };
 
   recognition.onend = function () {
@@ -225,3 +246,24 @@ if ("webkitSpeechRecognition" in window) {
 } else {
   micBtn.style.display = "none";
 }
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+  });
+}
+
+const fadeElements = document.querySelectorAll(".fade-in");
+
+function revealOnScroll() {
+  fadeElements.forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) {
+      el.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
