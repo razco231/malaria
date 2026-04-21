@@ -65,14 +65,17 @@ function analyzeSymptoms(symptoms, ageRange, duration) {
   if (duration === "3") score += 1;
   if (duration === "5") score += 2;
 
-  if (ageRange === "child" || ageRange === "older") score += 1;
+  if (ageRange === "child" || ageRange === "older") {
+    score += 1;
+  }
 
   if (score >= 9) {
     return {
       level: "High Risk",
       className: "high",
       confidence: "86%",
-      advice: "Your symptom pattern may be consistent with malaria. Visit a clinic or hospital as soon as possible for proper testing and treatment.",
+      advice:
+        "Your symptom pattern may be consistent with malaria. Visit a clinic or hospital as soon as possible for proper testing and treatment.",
       urgency: "Immediate medical testing recommended"
     };
   } else if (score >= 5) {
@@ -80,7 +83,8 @@ function analyzeSymptoms(symptoms, ageRange, duration) {
       level: "Moderate Risk",
       className: "moderate",
       confidence: "64%",
-      advice: "Some of your symptoms may suggest malaria. Monitor closely and seek testing if symptoms persist or worsen.",
+      advice:
+        "Some of your symptoms may suggest malaria. Monitor closely and seek testing if symptoms persist or worsen.",
       urgency: "Testing advised within 24 hours"
     };
   } else {
@@ -88,7 +92,8 @@ function analyzeSymptoms(symptoms, ageRange, duration) {
       level: "Low Risk",
       className: "low",
       confidence: "31%",
-      advice: "Your current symptom pattern suggests a lower malaria risk, but continue observing your health and seek care if symptoms increase.",
+      advice:
+        "Your current symptom pattern suggests a lower malaria risk, but continue observing your health and seek care if symptoms increase.",
       urgency: "Monitor symptoms carefully"
     };
   }
@@ -97,7 +102,10 @@ function analyzeSymptoms(symptoms, ageRange, duration) {
 function showResult(result, symptoms, location, textInput) {
   const detectedSymptomsHtml = symptoms.length
     ? symptoms
-        .map(symptom => `<span class="detected-item">${formatSymptomName(symptom)}</span>`)
+        .map(
+          (symptom) =>
+            `<span class="detected-item">${formatSymptomName(symptom)}</span>`
+        )
         .join("")
     : `<span class="detected-item">No detected symptoms</span>`;
 
@@ -146,7 +154,7 @@ form.addEventListener("submit", function (e) {
 
   const selectedSymptoms = Array.from(
     document.querySelectorAll('input[type="checkbox"]:checked')
-  ).map(input => input.value);
+  ).map((input) => input.value);
 
   const textInput = userInput.value.trim();
   const textSymptoms = extractSymptomsFromText(textInput);
@@ -204,13 +212,15 @@ if ("webkitSpeechRecognition" in window) {
   recognition.onend = function () {
     micBtn.classList.remove("listening");
     micBtn.textContent = "🎤";
-    userInput.placeholder = "Example: I have fever, headache, chills and my body feels weak...";
+    userInput.placeholder =
+      "Example: I have fever, headache, chills and my body feels weak...";
   };
 
   recognition.onerror = function () {
     micBtn.classList.remove("listening");
     micBtn.textContent = "🎤";
-    userInput.placeholder = "Example: I have fever, headache, chills and my body feels weak...";
+    userInput.placeholder =
+      "Example: I have fever, headache, chills and my body feels weak...";
   };
 } else {
   micBtn.style.display = "none";
